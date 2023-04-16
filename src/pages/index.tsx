@@ -1,27 +1,19 @@
-import Head from 'next/head'
+import Head from "next/head";
 
-import { Inter } from 'next/font/google'
-import styled from 'styled-components'
-import Login from '@/components/login/login'
-import Heading from '@/components/heading/heading'
 
+import styled from "styled-components";
+import Login from "@/components/login/login";
+import Heading from "@/components/heading/heading";
+import CreateBurger from "@/components/create/create";
+import SmallMenu from "@/components/menu_small/menu";
 
 const Grid = styled.div`
-outline: 1px solid dodgerblue;
-display:grid;
-grid-template-columns: 1fr repeat(2);
-
-
-`
-
-
-
-
-
+  outline: 1px solid dodgerblue;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+`;
 
 export default function Home() {
-
-
   return (
     <>
       <Head>
@@ -30,11 +22,14 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-  
-         <Login/>
-      <Heading/>
-   <Grid/>
-          
+
+      <Login />
+      <Heading />
+      <Grid>
+        <CreateBurger />
+
+        <SmallMenu/>
+      </Grid>
     </>
-  )
+  );
 }
