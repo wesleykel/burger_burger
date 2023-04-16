@@ -1,13 +1,27 @@
 import Head from 'next/head'
 
 import { Inter } from 'next/font/google'
-
+import styled from 'styled-components'
 import Login from '@/components/login/login'
 import Heading from '@/components/heading/heading'
 
-const inter = Inter({ subsets: ['latin'] })
+
+const Grid = styled.div`
+outline: 1px solid dodgerblue;
+display:grid;
+grid-template-columns: 1fr repeat(2);
+
+
+`
+
+
+
+
+
 
 export default function Home() {
+
+
   return (
     <>
       <Head>
@@ -17,9 +31,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
   
-          <Login/>
+         <Login/>
       <Heading/>
-           
+   <Grid/>
           
     </>
   )

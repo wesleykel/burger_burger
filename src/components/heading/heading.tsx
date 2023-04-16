@@ -2,11 +2,8 @@ import styled from "styled-components";
 
 const Title  = styled.h1`
 
-color:red;
-
-
-
-
+outline: 1px solid red;
+margin: 0;
 `
 
 
@@ -17,7 +14,7 @@ const Heading = () =>{
     return(
 
 
-        <Title>Hello world</Title>
+        <Title>Burger Kitchen</Title>
     )
 }
 
