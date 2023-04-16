@@ -1,19 +1,23 @@
 import Head from "next/head";
-
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 import styled from "styled-components";
 import Login from "@/components/login/login";
 import Heading from "@/components/heading/heading";
 import CreateBurger from "@/components/create/create";
 import SmallMenu from "@/components/menu_small/menu";
+import LargeMenu from "@/components/logged_out/menu";
 
 const Grid = styled.div`
   outline: 1px solid dodgerblue;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  height: 100vh;
 `;
 
 export default function Home() {
+  const { user } = useUser();
+
   return (
     <>
       <Head>
@@ -22,14 +26,24 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <Login />
-      <Heading />
-      <Grid>
-        <CreateBurger />
-
-        <SmallMenu/>
-      </Grid>
+      <div
+        style={{
+          height: "100vh",
+          outline: "1px red solid",
+          overflow: "hidden",
+        }}
+      >
+        <Login />
+        <Heading />
+        {user ? (
+          <Grid>
+            <CreateBurger />
+            <SmallMenu />
+          </Grid>
+        ) : (
+          <LargeMenu />
+        )}
+      </div>
     </>
   );
 }

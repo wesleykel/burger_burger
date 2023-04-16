@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 const Wrapper = styled.div`
     
-outline: 2px papayawhip dotted;
+outline: 2px papayawhip solid;
 
 
 
